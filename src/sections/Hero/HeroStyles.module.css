@@ -1,0 +1,263 @@
+/* General Container Styling */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Color Mode Toggle Section */
+.colorModeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.colorModeToggle {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.colorMode {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.themeText {
+  font-size: 16px;
+  color: var(--text-color); /* Dynamic based on theme */
+}
+
+/* Hero Information Section */
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 0;
+  color: var(--primary-color);
+}
+
+h2 {
+  font-size: 2rem;
+  margin: 0;
+  color: var(--secondary-color);
+}
+
+span {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+span a {
+  margin: 0;
+}
+
+span a img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Button Styles */
+button {
+  background-color: var(--btn-color);
+  color: var(--btn-text-color);
+  border: none;
+  border-radius: 20px;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+/* Description Text */
+.description {
+  max-width: 28ch;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+/* Sphere 3D Container */
+.sphereContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+  width: 100%;
+  height: 300px;
+  margin-bottom: 40px;
+}
+
+.sphere {
+  width: 250px;
+  height: 250px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotateSphere 10s infinite linear;
+}
+
+.sphereImg {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Sphere Images positioning */
+.sphereImg:nth-child(1) { transform: rotateY(0deg) rotateX(60deg) translateZ(140px); }
+.sphereImg:nth-child(2) { transform: rotateY(72deg) rotateX(45deg) translateZ(140px); }
+.sphereImg:nth-child(3) { transform: rotateY(144deg) rotateX(30deg) translateZ(140px); }
+.sphereImg:nth-child(4) { transform: rotateY(216deg) rotateX(15deg) translateZ(140px); }
+.sphereImg:nth-child(5) { transform: rotateY(288deg) rotateX(0deg) translateZ(140px); }
+.sphereImg:nth-child(6) { transform: rotateY(36deg) rotateX(-15deg) translateZ(140px); }
+.sphereImg:nth-child(7) { transform: rotateY(108deg) rotateX(-30deg) translateZ(140px); }
+.sphereImg:nth-child(8) { transform: rotateY(180deg) rotateX(-45deg) translateZ(140px); }
+.sphereImg:nth-child(9) { transform: rotateY(252deg) rotateX(-60deg) translateZ(140px); }
+.sphereImg:nth-child(10) { transform: rotateY(324deg) rotateX(-75deg) translateZ(140px); }
+
+/* Sphere Rotation Animation */
+@keyframes rotateSphere {
+  from {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+/* Responsiveness for smaller screens */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+    gap: 30px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .sphere {
+    width: 200px;
+    height: 200px;
+  }
+
+  .sphereImg {
+    width: 50px;
+    height: 50px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+
+  .description {
+    font-size: 0.9rem;
+    max-width: 24ch;
+  }
+}
+
+/* Responsiveness for medium screens */
+@media (min-width: 769px) and (max-width: 1023px) {
+  .container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 40px;
+  }
+
+  .info {
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .description {
+    max-width: 30ch;
+  }
+
+  .sphere {
+    width: 250px;
+    height: 250px;
+  }
+
+  .sphereImg {
+    width: 60px;
+    height: 60px;
+  }
+
+  button {
+    font-size: 18px;
+    padding: 12px 24px;
+  }
+}
+
+/* Responsiveness for larger screens */
+@media (min-width: 1024px) {
+  .container {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 40px;
+    gap: 60px;
+  }
+
+  .info {
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .sphere {
+    width: 300px;
+    height: 300px;
+  }
+
+  .sphereImg {
+    width: 80px;
+    height: 80px;
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+  }
+
+  .description {
+    font-size: 1.1rem;
+    max-width: 32ch;
+  }
+
+  button {
+    font-size: 20px;
+    padding: 14px 28px;
+  }
+}
